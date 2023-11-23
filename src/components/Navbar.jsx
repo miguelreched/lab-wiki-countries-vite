@@ -1,3 +1,11 @@
-function Navbar() {}
+function Navbar() {
+  return (
+    <div>
 
-export default Navbar;
+    <h3>WikiCountries</h3>
+
+    </div>
+  )
+}
+
+export default Navbar
