@@ -3,25 +3,53 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-    //1
-    const [countries, setCountries] = useState(null)
-    const [loading, setLoading] = useState(true)
+  //1
+  const [countries, setCountries] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+  useEffect(() => {
+    axios
+      .get("https://ih-countries-api.herokuapp.com")
+      .then((response) => {
+        setCountries(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
-    })
+  if (loading) {
+    return
+    <h2>cargando</h2>;
+  }
 
-    return (
+  return (
     <div>
       <h3>WikiCountries: Your Guide to the World</h3>
+      <ul>
+        {countries.map((country) => {
+          return (
+            <li key={country_.id}>
+              <Link to={`/country/${country.alpha3Code}`}>
+                <img
+                  src="{`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}"
+                  alt="foto-flag"
+                />
+                {country.name.official}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
-
 }
 
 export default HomePage;
 
-  {/* <div>
+{
+  /* <div>
     <nav className="navbar navbar-dark bg-primary mb-3">
       <div className="container">
         <a className="navbar-brand" href="/">
@@ -86,4 +114,5 @@ export default HomePage;
         </a>
       </div>
     </div>
-  </div> */}
+  </div> */
+}
