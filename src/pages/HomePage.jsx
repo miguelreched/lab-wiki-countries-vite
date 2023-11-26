@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { Route } from "react-router-dom";
 function HomePage() {
   //1
   const [countries, setCountries] = useState(null);
@@ -17,7 +17,7 @@ function HomePage() {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   if (loading) {
     return
@@ -33,7 +33,7 @@ function HomePage() {
             <li key={country_.id}>
               <Link to={`/country/${country.alpha3Code}`}>
                 <img
-                  src="{`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}"
+                  src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}  
                   alt="foto-flag"
                 />
                 {country.name.official}

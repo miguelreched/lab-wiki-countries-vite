@@ -32,25 +32,25 @@ function CountryDetailsPage() {
     <div>
       <p>Country Details</p>
       <img
-        src={`https://flagpedia.net/data/flags/icon/72x54/${countriesDet.alpha2Code.toLowerCase()}.png`}
+        src={`https://flagpedia.net/data/flags/icon/72x54/${countryDet.alpha2Code.toLowerCase()}.png`}
         alt="country-pic"
       />
-      <h2>{countriesDet.name.common}</h2>
+      <h2>{countryDet.name.common}</h2>
       <table>
         <thead></thead>
         <tbody>
           <tr>
             <td>Capital</td>
-            <td>{countriesDet.capital}</td>
+            <td>{countryDet.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
-            <td>{countriesDet.area} km</td>
+            <td>{countryDet.area} km</td>
           </tr>
           <tr>
             <td>Borders</td>
             <td>
-              {countriesDet.borders.map((eachCountry) => (
+              {countryDet.borders.map((eachCountry) => (
                 <p key={eachCountry}>
                   <Link to={`/${eachCountry}`}>{eachCountry}</Link>
                 </p>

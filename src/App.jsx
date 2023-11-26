@@ -12,8 +12,8 @@ function App() {
 
     <Routes>
 
-    <Route path={"/"} element={<HomePage/>}/>
-    <Route path={"/:countryId"} element={<CountryDetailsPage/>}/>
+    <Route path={"/country"} element={<HomePage/>}/>
+    <Route path={"/country/:countryId"} element={<CountryDetailsPage/>}/>
 
     </Routes>
     </>
