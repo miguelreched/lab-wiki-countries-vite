@@ -9,7 +9,7 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get("https://ih-countries-api.herokuapp.com")
+      .get("https://ih-countries-api.herokuapp.com/countries")
       .then((response) => {
         setCountries(response.data);
         setLoading(false);
@@ -20,23 +20,24 @@ function HomePage() {
   }, []);
 
   if (loading) {
-    return
-    <h2>cargando</h2>;
+    return(
+    <h2>cargando</h2>
+    )
   }
 
   return (
     <div>
       <h3>WikiCountries: Your Guide to the World</h3>
       <ul>
-        {countries.map((country) => {
+        {countries.map((eachCountry) => {
           return (
-            <li key={country_.id}>
-              <Link to={`/country/${country.alpha3Code}`}>
+            <li key={eachCountry._id}>
+              <Link to={`/country/${eachCountry.alpha3Code}`}>
                 <img
-                  src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}  
+                  src={`https://flagpedia.net/data/flags/icon/72x54/${eachCountry.alpha2Code.toLowerCase()}.png`}
                   alt="foto-flag"
                 />
-                {country.name.official}
+                {eachCountry.name.official}
               </Link>
             </li>
           );

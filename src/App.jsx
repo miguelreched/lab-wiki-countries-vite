@@ -12,7 +12,7 @@ function App() {
 
     <Routes>
 
-    <Route path={"/country"} element={<HomePage/>}/>
+    <Route path={"/"} element={<HomePage/>}/>
     <Route path={"/country/:countryId"} element={<CountryDetailsPage/>}/>
 
     </Routes>
